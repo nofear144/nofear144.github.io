@@ -1,0 +1,49 @@
+
+.container {
+    display: flex;
+    margin: 20px 0px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.add_btn {
+    width: 30px;
+    height: 30px;
+    margin-left: 40px;
+    color: white;
+    border-radius: 5px;
+    background-color: #3f51b5;
+}
+
+.add_inp {
+    margin: 10px 0;
+    padding: 6px 12px;
+    height: 30px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: rgba(7, 7, 7, 0.93);
+    border: 1px solid rgba(169, 169, 169, 0.4);
+    border-radius: 5px;
+    max-width: 250px;
+    width: 100%;
+}
+
+.add_inp_task {
+    margin: 10px 0;
+    padding: 6px 12px;
+    height: 15px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: rgba(7, 7, 7, 0.93);
+    border: 1px solid rgba(169, 169, 169, 0.4);
+    border-radius: 5px;
+    max-width: 180px;
+    width: 100%;
+}
+
+.todo {
+    background-color: gray;
+}
