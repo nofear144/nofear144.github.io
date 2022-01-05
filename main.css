@@ -45,5 +45,49 @@
 }
 
 .todo {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     background-color: gray;
+    padding: 20px;
+    margin: 20px;
+    flex-wrap: wrap;
+}
+
+.list_todo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container_todos {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.task_container {
+    display: flex;
+    background-color: pink;
+}
+
+.finished_task {
+    height: 100px;
+    width: 100px;
+    background-color: cornflowerblue;
+}
+
+.unfinished_task {
+    height: 100px;
+    width: 100px;
+    background-color: brown;
+}
+.head_todo_container{
+    display: flex;
+    justify-content: center;
+    align-items: center
 }
