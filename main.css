@@ -57,7 +57,7 @@
 .todo {
 position: relative;
     border-radius: 5px;
-    width: 500px;
+    width: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -93,7 +93,7 @@ position: relative;
 }
 
 .finished_task {
-    min-height: 150px;
+    min-height: 50px;
     width: 100%;
     background-color: #f3f3f3;
     margin: 20px 0px;
@@ -102,7 +102,7 @@ position: relative;
 
 
 .unfinished_task {
-    min-height: 150px;
+    min-height: 50px;
     width: 100%;
     background-color: #f3f3f3;
     margin: 20px 0px;
@@ -124,6 +124,7 @@ position: relative;
     font-size: 16px;
     font-family: sans-serif;
     align-self: center;
+    min-width: 290px;
 }
 
 .header_tasks {
