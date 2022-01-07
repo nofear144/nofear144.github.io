@@ -15,6 +15,16 @@
     border-radius: 5px;
     background-color: #3f51b5;
 }
+.deleteTodo_btn{
+    top: 10px;
+    right: 15px;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    color: white;
+    border-radius: 5px;
+    background-color: #3f51b5;
+}
 
 .add_inp {
     margin: 10px 0;
@@ -45,15 +55,20 @@
 }
 
 .todo {
+position: relative;
+    border-radius: 5px;
     width: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color: gray;
+    background-color: #f3f3f3;
     padding: 20px;
     margin: 20px;
     flex-wrap: wrap;
+    -webkit-box-shadow: 6px 10px 8px 0px rgba(34, 60, 80, 0.38);
+    -moz-box-shadow: 6px 10px 8px 0px rgba(34, 60, 80, 0.38);
+    box-shadow: 6px 10px 8px 0px rgba(34, 60, 80, 0.38);
 }
 
 .list_todo {
@@ -72,22 +87,50 @@
 
 .task_container {
     display: flex;
-    background-color: pink;
+    background-color: #f3f3f3;
+    justify-content: space-around;
+    margin: 10px 0px;
 }
 
 .finished_task {
-    height: 100px;
-    width: 100px;
-    background-color: cornflowerblue;
+    min-height: 150px;
+    width: 100%;
+    background-color: #f3f3f3;
+    margin: 20px 0px;
+    opacity: 0.3;
 }
 
+
 .unfinished_task {
-    height: 100px;
-    width: 100px;
-    background-color: brown;
+    min-height: 150px;
+    width: 100%;
+    background-color: #f3f3f3;
+    margin: 20px 0px;
 }
-.head_todo_container{
+
+.head_todo_container {
     display: flex;
     justify-content: center;
     align-items: center
+}
+
+.headTask_Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task_text {
+    font-size: 16px;
+    font-family: sans-serif;
+    align-self: center;
+}
+
+.header_tasks {
+    align-self: start;
+}
+
+.checkbox_style {
+    height: 20px;
+    width: 20px;
 }
