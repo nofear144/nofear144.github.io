@@ -56,7 +56,11 @@ function createTodo(value) {
     )
     deleteTodoBtn.addEventListener("click", deleteTodo)
     saveToLocalStorage()
-    return {todolist, finishedTasks, unfinishedTasks}
+    return {
+        todolist: todolist,
+        finishedTasks: finishedTasks,
+        unfinishedTasks: unfinishedTasks
+    }
 
 }
 
@@ -94,7 +98,7 @@ function createTask(input, finishedTasks, unfinishedTasks) {
 
     input.value = ""
     saveToLocalStorage()
-    return {taskContainer, checkbox}
+    return {taskContainer: taskContainer, checkbox: checkbox}
 
 }
 
@@ -117,9 +121,6 @@ function switchStatus(finishedTasks, unfinishedTasks, checkbox) {
 }
 
 
-
-
-
 //Set to LS ( LS use as a state in this App )
 function saveToLocalStorage() {
     var todoArr = [];
@@ -140,30 +141,39 @@ function saveToLocalStorage() {
             todoArr[i].finishedTask.push(finishedTask[l].innerText)
         }
     }
+    if (localStorage) {
+        localStorage.removeItem('todo')
+        localStorage.setItem('todo', JSON.stringify(todoArr))
+    }
 
-    localStorage.removeItem('todo')
-    localStorage.setItem('todo', JSON.stringify(todoArr))
 }
 
 //Parse from LS
 function loadFromLocalStorage() {
-    return JSON.parse(localStorage.getItem("todo"))
+    if (localStorage) {
+        return JSON.parse(localStorage.getItem("todo"))
+    }
 }
+
 var data = loadFromLocalStorage()
-for (var i = 0; i < data.length; i++) {
 
-    var savedTodo = createTodo(data[i].name)
+if (data) {
+    for (var i = 0; i < data.length; i++) {
 
-    for (var j = 0; j < data[i].finishedTask.length; j++) {
-        var savedTask = createTask(data[i].finishedTask[j], savedTodo.finishedTasks, savedTodo.unfinishedTasks)
-        savedTask.checkbox.checked = true
-        switchStatus.bind(savedTask.taskContainer,savedTodo.finishedTasks,savedTodo.unfinishedTasks,savedTask.checkbox)()
+        var savedTodo = createTodo(data[i].name)
+
+        for (var j = 0; j < data[i].finishedTask.length; j++) {
+            var savedTask = createTask(data[i].finishedTask[j], savedTodo.finishedTasks, savedTodo.unfinishedTasks)
+            savedTask.checkbox.checked = true
+            switchStatus.bind(savedTask.taskContainer, savedTodo.finishedTasks, savedTodo.unfinishedTasks, savedTask.checkbox)()
+        }
+        for (var l = 0; l < data[i].unfinishedTask.length; l++) {
+            createTask(data[i].unfinishedTask[l], savedTodo.finishedTasks, savedTodo.unfinishedTasks)
+        }
+
     }
-    for (var l = 0; l < data[i].unfinishedTask.length; l++) {
-        createTask(data[i].unfinishedTask[l], savedTodo.finishedTasks, savedTodo.unfinishedTasks)
-    }
-
 }
+
 
 
 
