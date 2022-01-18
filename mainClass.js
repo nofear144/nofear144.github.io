@@ -4,14 +4,19 @@ var listTodo = document.querySelector("#list_todo")
 
 addTodoBtn.addEventListener("click", function (e) {
     if (todoInput.value === '') return
-    createTodo.bind(listTodo, todoInput.value)()
+    //createTodo.bind(listTodo, todoInput.value)()
     todoInput.value = ""
+    var todo1 = new CreateTodo(todoInput.value)
+    todo1.createTodoClass()
 })
-todoInput.addEventListener("keyup", (e) => {
-    if (e.code === "Enter") {
-        createTodo.bind(listTodo, todoInput.value)()
-    }
-})
+
+function CreateTodo(nameTodo) {
+    this.nameTodo = nameTodo
+}
+
+CreateTodo.prototype.createTodoClass = function () {
+    listTodo.innerHTML += `<div>Hello</div>`
+}
 
 
 function createTodo(value) {
@@ -59,13 +64,6 @@ function createTodo(value) {
     taskBtn.addEventListener("click",
         createTask.bind(todolist, input, finishedTasks, unfinishedTasks)
     )
-
-    input.addEventListener("keyup", (e) => {
-        if (e.code === "Enter") {
-            createTask.bind(todolist, input, finishedTasks, unfinishedTasks)()
-        }
-    })
-
     deleteTodoBtn.addEventListener("click", deleteTodo)
     saveToLocalStorage()
     return {
